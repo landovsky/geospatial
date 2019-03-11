@@ -3,9 +3,11 @@ production:
   pool: <%= ENV["DB_POOL"] || 5 %>
 
 development:
-  adapter: postgresql
+  adapter: postgis
+  postgis_extension: postgis
+  postgis_schema: public          
   url: <%= ENV["DATABASE_URL"] %>
 
 test:
-  adapter: postgresql
+  adapter: postgis
   url: <%= ENV["DATABASE_URL_TEST"] %>

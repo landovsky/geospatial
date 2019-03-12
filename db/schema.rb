@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_11_211213) do
+ActiveRecord::Schema.define(version: 2019_03_12_052753) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,4 +38,48 @@ ActiveRecord::Schema.define(version: 2019_03_11_211213) do
     t.geometry "multipolygon", limit: {:srid=>4326, :type=>"geometry"}
   end
 
+  create_table "floors", force: :cascade do |t|
+    t.bigint "building_id"
+    t.integer "position"
+    t.string "title"
+    t.float "floor_polygon", array: true
+    t.json "transformation"
+    t.string "deployment_photo"
+    t.json "wgs_transformation"
+    t.float "ppm", array: true
+    t.boolean "published", default: false
+    t.datetime "deleted_at"
+    t.integer "floor", null: false
+    t.float "height", default: 1.0, null: false
+    t.float "deployment_photo_width"
+    t.float "deployment_photo_height"
+    t.geometry "multipolygon", limit: {:srid=>4326, :type=>"geometry"}
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["building_id"], name: "index_floors_on_building_id"
+  end
+
+  create_table "sensors", force: :cascade do |t|
+    t.bigint "floor_id"
+    t.float "coordinates", array: true
+    t.integer "device_type"
+    t.integer "major"
+    t.integer "minor"
+    t.integer "tx_power"
+    t.integer "cc1310_id"
+    t.string "sn"
+    t.float "rssi"
+    t.integer "beacon_type", default: 1
+    t.string "type", null: false
+    t.string "stone_name"
+    t.geometry "position", limit: {:srid=>4326, :type=>"geometry"}
+    t.float "height", default: 0.0
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["floor_id"], name: "index_sensors_on_floor_id"
+  end
+
+  add_foreign_key "floors", "buildings"
+  add_foreign_key "sensors", "floors"
 end

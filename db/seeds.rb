@@ -6,10 +6,23 @@ params = {
   "street": "Uhlířská 3, Praha",
   "phone": "+420222333090"
 }
-Building.create(params)
+
+# the buildings data sample was not available anymore..
+buildings = [26, 1, 28, 30]
+buildings.each do |id|
+  Building.create(params.merge(id: id))
+end
 
 floors = JSON.parse(File.read(FIXTURES + 'floors.json'))
-floors.each { |floor| puts "floor id: #{floor['id']}"; Floor.create floor }
+floors.each do |floor|
+  printf("floor: %s, persisted: ", floor['id'])
+  f = Floor.create(floor)
+  puts f.persisted?
+end
 
 sensors = JSON.parse(File.read(FIXTURES + 'sensors.json'))
-sensors.each { |sensor| puts "sensor id: #{sensor['id']}"; Sensor.create sensor }
+sensors.each do |sensor|
+  printf("sensor: %s, persisted: ", sensor['id'])
+  s = Sensor.create sensor
+  puts s.persisted?
+end

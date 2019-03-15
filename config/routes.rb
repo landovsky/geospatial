@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  resource :building
+  resources :buildings, :floors, :sensors
 end

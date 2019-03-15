@@ -1,51 +1,43 @@
 class FloorsController < ApplicationController
-  before_action :set_floor, only: [:show, :update, :destroy]
-
-  # GET /floors
   def index
-    @floors = Floor.all
+    @resources = Floor.all
 
-    render json: @floors
+    render json: @resources
   end
 
-  # GET /floors/1
   def show
-    render json: @floor
+    render json: @resource
   end
 
-  # POST /floors
   def create
-    @floor = Floor.new(floor_params)
+    @resource = Floor.new(permitted_params)
 
-    if @floor.save
-      render json: @floor, status: :created, location: @floor
+    if @resource.save
+      render json: @resource, status: :created, location: @resource
     else
-      render json: @floor.errors, status: :unprocessable_entity
+      render json: @resource.errors, status: :unprocessable_entity
     end
   end
 
-  # PATCH/PUT /floors/1
   def update
-    if @floor.update(floor_params)
-      render json: @floor
+    if @resource.update(permitted_params)
+      render json: @resource
     else
-      render json: @floor.errors, status: :unprocessable_entity
+      render json: @resource.errors, status: :unprocessable_entity
     end
   end
 
-  # DELETE /floors/1
   def destroy
-    @floor.destroy
+    @resource.destroy
+    render status: :ok
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_floor
-      @floor = Floor.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def floor_params
-      params.fetch(:floor, {})
-    end
+  def permitted_params
+    params.require(:floor)
+          .permit(:building_id, :position, :title, :floor_polygon, :transformation,
+                  :deployment_photo, :wgs_transformation, :ppm, :published,
+                  :floor, :height, :deployment_photo_width, :deployment_photo_height, :multipolygon)
+  end
 end

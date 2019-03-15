@@ -1,51 +1,43 @@
 class BuildingsController < ApplicationController
-  before_action :set_building, only: [:show, :update, :destroy]
-
-  # GET /buildings
   def index
-    @buildings = Building.all
+    @resources = Building.all
 
-    render json: @buildings
+    render json: @resources
   end
 
-  # GET /buildings/1
   def show
-    render json: @building
+    render json: @resource
   end
 
-  # POST /buildings
   def create
-    @building = Building.new(building_params)
+    @resource = Building.new(permitted_params)
 
-    if @building.save
-      render json: @building, status: :created, location: @building
+    if @resource.save
+      render json: @resource, status: :created, location: @resource
     else
-      render json: @building.errors, status: :unprocessable_entity
+      render json: @resource.errors, status: :unprocessable_entity
     end
   end
 
-  # PATCH/PUT /buildings/1
   def update
-    if @building.update(building_params)
-      render json: @building
+    if @resource.update(permitted_params)
+      render json: @resource
     else
-      render json: @building.errors, status: :unprocessable_entity
+      render json: @resource.errors, status: :unprocessable_entity
     end
   end
 
-  # DELETE /buildings/1
   def destroy
-    @building.destroy
+    @resource.destroy
+    render status: :ok
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_building
-      @building = Building.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def building_params
-      params.fetch(:building, {})
-    end
+  def permitted_params
+    params.require(:building)
+          .permit(:name, :account_id, :time_zone, :description, :building_photo_big,
+                  :building_photo_small, :visibility, :working_hours, :street, :phone,
+                  :label, :building_polygon, :order, :published, :multipolygon)
+  end
 end

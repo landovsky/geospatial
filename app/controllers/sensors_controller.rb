@@ -1,51 +1,42 @@
 class SensorsController < ApplicationController
-  before_action :set_sensor, only: [:show, :update, :destroy]
-
-  # GET /sensors
   def index
-    @sensors = Sensor.all
+    @resources = Sensor.all
 
-    render json: @sensors
+    render json: @resources
   end
 
-  # GET /sensors/1
   def show
-    render json: @sensor
+    render json: @resource
   end
 
-  # POST /sensors
   def create
-    @sensor = Sensor.new(sensor_params)
+    @resource = Sensor.new(permitted_params)
 
-    if @sensor.save
-      render json: @sensor, status: :created, location: @sensor
+    if @resource.save
+      render json: @resource, status: :created, location: @resource
     else
-      render json: @sensor.errors, status: :unprocessable_entity
+      render json: @resource.errors, status: :unprocessable_entity
     end
   end
 
-  # PATCH/PUT /sensors/1
   def update
-    if @sensor.update(sensor_params)
-      render json: @sensor
+    if @resource.update(permitted_params)
+      render json: @resource
     else
-      render json: @sensor.errors, status: :unprocessable_entity
+      render json: @resource.errors, status: :unprocessable_entity
     end
   end
 
-  # DELETE /sensors/1
   def destroy
-    @sensor.destroy
+    @resource.destroy
+    render status: :ok
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_sensor
-      @sensor = Sensor.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def sensor_params
-      params.fetch(:sensor, {})
-    end
+  def permitted_params
+    params.require(:sensor)
+          .permit(:floor_id, :coordinates, :device_type, :major, :minor, :tx_power,
+                  :cc1310_id, :sn, :rssi, :beacon_type, :type, :stone_name, :position, :height)
+  end
 end

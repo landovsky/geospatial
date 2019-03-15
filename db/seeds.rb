@@ -1,7 +1,15 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+FIXTURES = 'test/fixtures/'
+
+params = {
+  "visibility": 0,
+  "working_hours": "10-18",
+  "street": "Uhlířská 3, Praha",
+  "phone": "+420222333090"
+}
+Building.create(params)
+
+floors = JSON.parse(File.read(FIXTURES + 'floors.json'))
+floors.each { |floor| puts "floor id: #{floor['id']}"; Floor.create floor }
+
+sensors = JSON.parse(File.read(FIXTURES + 'sensors.json'))
+sensors.each { |sensor| puts "sensor id: #{sensor['id']}"; Sensor.create sensor }

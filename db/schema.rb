@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 2019_03_12_052753) do
     t.float "ppm", array: true
     t.boolean "published", default: false
     t.datetime "deleted_at"
-    t.integer "floor", null: false
+    t.integer "floor"
     t.float "height", default: 1.0, null: false
     t.float "deployment_photo_width"
     t.float "deployment_photo_height"
@@ -61,14 +61,16 @@ ActiveRecord::Schema.define(version: 2019_03_12_052753) do
 
   create_table "sensors", force: :cascade do |t|
     t.bigint "floor_id"
+    t.bigint "building_id"
     t.float "coordinates", array: true
     t.integer "device_type"
     t.integer "major"
     t.integer "minor"
     t.integer "tx_power"
-    t.integer "cc1310_id"
+    t.bigint "cc1310_id"
     t.string "sn"
     t.float "rssi"
+    t.float "coordinates_wgs", array: true
     t.integer "beacon_type", default: 1
     t.string "type", null: false
     t.string "stone_name"
@@ -77,9 +79,11 @@ ActiveRecord::Schema.define(version: 2019_03_12_052753) do
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["building_id"], name: "index_sensors_on_building_id"
     t.index ["floor_id"], name: "index_sensors_on_floor_id"
   end
 
   add_foreign_key "floors", "buildings"
+  add_foreign_key "sensors", "buildings"
   add_foreign_key "sensors", "floors"
 end

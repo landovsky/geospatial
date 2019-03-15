@@ -12,7 +12,7 @@ class CreateFloors < ActiveRecord::Migration[5.2]
       t.float :ppm, array: true
       t.boolean :published, default: false
       t.datetime :deleted_at
-      t.integer :floor, null: false
+      t.integer :floor
       t.float :height, default: 1, null: false
       t.float :deployment_photo_width
       t.float :deployment_photo_height

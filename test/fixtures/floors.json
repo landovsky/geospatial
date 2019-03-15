@@ -1,0 +1,288 @@
+[
+  {
+    "id": 34,
+    "position": 0,
+    "title": "1patro",
+    "building_id": 26,
+    "deployment_photo": "https://spaceti-staging.s3.eu-central-1.amazonaws.com/quadrio/floor/big/78b2824ed1122965-189d72c800aeed10-973b97656949da1c-Floor_plan.png",
+    "wgs_transformation": {
+      "angle": -6.238206279428305,
+      "c_translation": [
+        0,
+        0
+      ],
+      "g_origin": [
+        50.08123164727366,
+        14.419792179480938
+      ],
+      "scale": [
+        1,
+        1
+      ]
+    },
+    "ppm": [
+      89.4655368402902,
+      89.4655368402902
+    ]
+  },
+  {
+    "id": 17,
+    "position": 0,
+    "title": "6NP",
+    "building_id": 1,
+    "deployment_photo": "https://spaceti-staging.s3.amazonaws.com/quadrio/floor/big/2180e9947dca2f65-095d26ea29a9ef5a-78b9e882d09a2fed-58d85e682d296bfc-8106d753106b98bf-eff1032126e4d5f0-Screen%20Shot%202018-04-11%20at%2013.20.00.png",
+    "wgs_transformation": {
+      "g_origin": [
+        50.081117404468536,
+        14.41948869586375
+      ],
+      "c_translation": [
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1
+      ],
+      "angle": 7.970311065485099
+    },
+    "ppm": [
+      19.1957421465296,
+      18.8855741419846
+    ]
+  },
+  {
+    "id": 60,
+    "position": 0,
+    "title": "adsasdasd",
+    "building_id": 28,
+    "deployment_photo": null,
+    "wgs_transformation": {
+      "angle": 0,
+      "c_translation": [
+        0,
+        0
+      ],
+      "g_origin": [
+        50.043552318694765,
+        14.451366998255253
+      ],
+      "scale": [
+        1,
+        1
+      ]
+    },
+    "ppm": [
+      1.35458727551252,
+      1.35458727551252
+    ]
+  },
+  {
+    "id": 45,
+    "position": 0,
+    "title": "New floor",
+    "building_id": 30,
+    "deployment_photo": "https://spaceti-staging.s3.eu-central-1.amazonaws.com/quadrio/floor/big/89d41e533c6e6b98-ddca23a5d50a78f5-4a5a9edc6016ed9b-Bez%20n%C3%A1zvu.png",
+    "wgs_transformation": {
+      "angle": 0,
+      "c_translation": [
+        0,
+        0
+      ],
+      "g_origin": [
+        53.45074958601673,
+        -6.199222058057785
+      ],
+      "scale": [
+        1,
+        1
+      ]
+    },
+    "ppm": [
+      21.3784006294557,
+      21.3784006294557
+    ]
+  },
+  {
+    "id": 37,
+    "position": 0,
+    "title": "FL1",
+    "building_id": 28,
+    "deployment_photo": "https://spaceti-staging.s3.eu-central-1.amazonaws.com/quadrio/floor/big/fbf327a0ef7b579c-ce128b20f69f12d8-44ef9d481018d49d-pig%20wordcount.PNG",
+    "wgs_transformation": {
+      "angle": 0,
+      "c_translation": [
+        0,
+        0
+      ],
+      "g_origin": [
+        50.043552318694765,
+        14.451366998255253
+      ],
+      "scale": [
+        1,
+        1
+      ]
+    },
+    "ppm": [
+      23.3340537392537,
+      5.22823158969745
+    ]
+  },
+  {
+    "id": 35,
+    "position": 1,
+    "title": "2.patro",
+    "building_id": 26,
+    "deployment_photo": "https://spaceti-staging.s3.eu-central-1.amazonaws.com/quadrio/floor/big/a34134393a66fad0-bc953fed2327a40b-d6473f620f563cb5-chart.png",
+    "wgs_transformation": {
+      "angle": 3.3419438572612457,
+      "c_translation": [
+        0,
+        0
+      ],
+      "g_origin": [
+        50.08118606029672,
+        14.41956484938966
+      ],
+      "scale": [
+        1,
+        1
+      ]
+    },
+    "ppm": [
+      14.0454691475455,
+      6.03004728063798
+    ]
+  },
+  {
+    "id": 1,
+    "position": 1,
+    "title": "2NP",
+    "building_id": 1,
+    "deployment_photo": "https://spaceti-deploy-building-photos.s3.amazonaws.com/quadrio/b72a5e5437fdba18-21f9ac42133cd451-1b3d0a6552e11459-cpi.png",
+    "wgs_transformation": {
+      "angle": 8.382994731853374,
+      "c_translation": [
+        0,
+        0
+      ],
+      "g_origin": [
+        50.081124835852115,
+        14.419646453805688
+      ],
+      "scale": [
+        1,
+        1
+      ]
+    },
+    "ppm": [
+      34.2418157942977,
+      34.2622058613833
+    ]
+  },
+  {
+    "id": 38,
+    "position": 2,
+    "title": "FL2",
+    "building_id": 28,
+    "deployment_photo": "https://spaceti-staging.s3.eu-central-1.amazonaws.com/quadrio/floor/big/53f197efdc9535d3-5fad271ac179ffab-6b6c1a94806654da-missing%20heartbeat.PNG",
+    "wgs_transformation": {
+      "angle": -46.00089024857185,
+      "c_translation": [
+        0,
+        0
+      ],
+      "g_origin": [
+        50.04385623658251,
+        14.451351531752609
+      ],
+      "scale": [
+        1,
+        1
+      ]
+    },
+    "ppm": [
+      19.0355900084811,
+      36.8876442332225
+    ]
+  },
+  {
+    "id": 36,
+    "position": 2,
+    "title": "new floor 3",
+    "building_id": 26,
+    "deployment_photo": null,
+    "wgs_transformation": {
+      "g_origin": [
+        0,
+        0
+      ],
+      "angle": 0,
+      "c_translation": [
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1
+      ]
+    },
+    "ppm": [
+      25,
+      25
+    ]
+  },
+  {
+    "id": 20,
+    "position": 2,
+    "title": "1PP",
+    "building_id": 1,
+    "deployment_photo": "https://spaceti-staging.s3.amazonaws.com/quadrio/floor/big/993d34470d27e685-7de57d8e48689441-794ad3ecb6187022-IMG_7781.JPG",
+    "wgs_transformation": {
+      "angle": 7.820218147044238,
+      "c_translation": [
+        0,
+        0
+      ],
+      "g_origin": [
+        50.08100697228296,
+        14.419603848983106
+      ],
+      "scale": [
+        1,
+        1
+      ]
+    },
+    "ppm": [
+      38.53944760908,
+      38.53944760908
+    ]
+  },
+  {
+    "id": 41,
+    "position": 2,
+    "title": "FL3",
+    "building_id": 28,
+    "deployment_photo": "https://spaceti-staging.s3.eu-central-1.amazonaws.com/quadrio/floor/big/746a298230f304c8-0b5a61a11d41981b-ac9c327ad389c806-1.PNG",
+    "wgs_transformation": {
+      "angle": -45.8662301913958,
+      "c_translation": [
+        0,
+        0
+      ],
+      "g_origin": [
+        50.04392884129143,
+        14.451500839489464
+      ],
+      "scale": [
+        1,
+        1
+      ]
+    },
+    "ppm": [
+      26.041898196546,
+      34.2428392969842
+    ]
+  }
+]

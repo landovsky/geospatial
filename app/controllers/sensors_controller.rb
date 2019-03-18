@@ -36,7 +36,8 @@ class SensorsController < ApplicationController
 
   def permitted_params
     params.require(:sensor)
-          .permit(:floor_id, :building_id, :coordinates, :device_type, :major, :minor, :tx_power,
-                  :cc1310_id, :sn, :rssi, :beacon_type, :type, :stone_name, :position, :height)
+          .permit(:floor_id, :building_id, :device_type, :major, :minor, :tx_power,
+                  :cc1310_id, :sn, :rssi, :beacon_type, :type, :stone_name, :position,
+                  :height, coordinates: [])
   end
 end

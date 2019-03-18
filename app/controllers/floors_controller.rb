@@ -36,8 +36,9 @@ class FloorsController < ApplicationController
 
   def permitted_params
     params.require(:floor)
-          .permit(:building_id, :position, :title, :floor_polygon, :transformation,
-                  :deployment_photo, :wgs_transformation, :ppm, :published,
-                  :floor, :height, :deployment_photo_width, :deployment_photo_height, :multipolygon)
+          .permit(:building_id, :position, :title, :transformation,
+                  :deployment_photo, :wgs_transformation, :published,
+                  :floor, :height, :deployment_photo_width, :deployment_photo_height,
+                  :multipolygon, floor_polygon: [], ppm: [])
   end
 end

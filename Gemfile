@@ -11,6 +11,7 @@ gem 'rails-observers'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 # Model / DB
+gem 'active_model_serializers', '~> 0.10.0'
 gem 'activerecord-postgis-adapter'
 gem 'pg'
 

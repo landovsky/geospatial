@@ -1,28 +1,36 @@
-FIXTURES = 'test/fixtures/'
+FIXTURES = 'spec/fixtures/'.freeze
 
-params = {
-  "visibility": 0,
-  "working_hours": "10-18",
-  "street": "Uhlířská 3, Praha",
-  "phone": "+420222333090"
-}
-
-# the buildings data sample was not available anymore..
-buildings = [26, 1, 28, 30]
-buildings.each do |id|
-  Building.create(params.merge(id: id))
+def log(entity, id, persisted)
+  printf "%s id: %s, persisted: %s\n", entity, id, persisted
 end
 
-floors = JSON.parse(File.read(FIXTURES + 'floors.json'))
-floors.each do |floor|
-  printf("floor: %s, persisted: ", floor['id'])
-  f = Floor.create(floor)
-  puts f.persisted?
+ActiveRecord::Base.connection.execute(%(
+  Delete from sensors;
+  DELETE FROM floors;
+  DELETE FROM buildings;
+))
+
+account_tree = JSON.parse(File.read(FIXTURES + 'account-tree.json'))['account']
+
+account_tree['buildings'].each do |building|
+  import_exceptions = %w(tel_numbers b_polygon wifi_list title account_subdomain floors)
+  b = Building.create(building.except(*import_exceptions))
+  log :building, building[:id], b.persisted?
 end
 
-sensors = JSON.parse(File.read(FIXTURES + 'sensors.json'))
+account_tree['buildings'].each do |building|
+  building['floors'].each do |floor|
+    import_exceptions = %w(lone_worker_zones danger_zones no_go_zones geofencing_zones shadow_zones markers
+                           walls wall_items beacons nodes rooms save_points connections edges)
+    f = Floor.create(floor.except(*import_exceptions))
+    log :floor, floor[:id], f.persisted?
+  end
+end
+
+sensors = account_tree['buildings'][0]['floors'].map { |f| f['beacons'] }.flatten
+
 sensors.each do |sensor|
-  printf("sensor: %s, persisted: ", sensor['id'])
-  s = Sensor.create sensor
-  puts s.persisted?
+  import_exceptions = %w(stats)
+  s = Sensor.create sensor.except(*import_exceptions)
+  log :sensor, sensor['id'], s.persisted?
 end

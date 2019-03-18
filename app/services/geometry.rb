@@ -1,6 +1,4 @@
 class Geometry
-  DEFAULT_SRID = 4326
-
   class Point
     attr_reader :adapter, :coordinates
 

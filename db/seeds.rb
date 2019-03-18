@@ -4,12 +4,6 @@ def log(entity, id, persisted)
   printf "%s id: %s, persisted: %s\n", entity, id, persisted
 end
 
-ActiveRecord::Base.connection.execute(%(
-  Delete from sensors;
-  DELETE FROM floors;
-  DELETE FROM buildings;
-))
-
 account_tree = JSON.parse(File.read(FIXTURES + 'account-tree.json'))['account']
 
 account_tree['buildings'].each do |building|

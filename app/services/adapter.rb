@@ -8,8 +8,5 @@ module Adapter
       execute(%(SELECT st_makepoint(#{coordinates[0]}, #{coordinates[1]})))
         .first['st_makepoint']
     end
-
-    def decode
-    end
   end
 end

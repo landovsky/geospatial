@@ -21,7 +21,7 @@ class FloorsController < ApplicationController
 
   def update
     if @resource.update(permitted_params)
-      render json: @resource
+      render json: @resource, status: :ok
     else
       render json: @resource.errors, status: :unprocessable_entity
     end

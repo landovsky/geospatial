@@ -10,7 +10,6 @@ FactoryBot.define do
     phone                 { "+420222333090" }
     label                 { nil }
     building_polygon      { nil }
-    deleted_at            { nil }
     order                 { 0 }
     published             { false }
     multipolygon          { nil }

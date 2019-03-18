@@ -1,6 +1,5 @@
 class Floor < ApplicationRecord
   belongs_to :building
 
-  has_many :floors
-  has_many :sensors
+  has_many :sensors, dependent: :destroy
 end

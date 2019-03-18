@@ -1,14 +1,15 @@
 require 'rails_helper'
 
 describe SensorsController do
-  let!(:sensor) { create :sensor }
+  let!(:sensor)    { create :sensor }
+  let(:serialized) { proc { |sensor| ActiveModelSerializers::SerializableResource.new(sensor, {}) } }
 
   describe 'GET #index' do
     it 'returns array of sensors' do
       get :index
 
       expect(response).to have_http_status :ok
-      expect(response.body).to eq [sensor].to_json
+      expect(response.body).to eq [serialized[sensor]].to_json
     end
   end
 
@@ -17,7 +18,7 @@ describe SensorsController do
       get :show, params: { id: sensor.id }
 
       expect(response).to have_http_status :ok
-      expect(response.body).to eq sensor.to_json
+      expect(response.body).to eq serialized[sensor].to_json
     end
   end
 

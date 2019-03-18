@@ -1,5 +1,5 @@
 class Sensor < ApplicationRecord
-  before_create :set_postgis_point
+  before_create :encode_position
 
   belongs_to :building
   belongs_to :floor
@@ -8,7 +8,7 @@ class Sensor < ApplicationRecord
 
   private
 
-  def set_postgis_point
-    self.position = ::Geometry::Point.new(coordinates).wgs
+  def encode_position
+    self.position = ::Geometry::Point.new(coordinates).encode
   end
 end

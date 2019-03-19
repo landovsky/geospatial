@@ -1,8 +1,10 @@
 class Geometry
+  DEFAULT_SRID = 4326
+
   class Point
     attr_reader :adapter, :coordinates
 
-    def initialize(coordinates, adapter: Adapter::Postgis)
+    def initialize(coordinates, adapter: Adapter::RGeo)
       @coordinates = validated_coordinates(coordinates)
       @adapter     = adapter
     end
